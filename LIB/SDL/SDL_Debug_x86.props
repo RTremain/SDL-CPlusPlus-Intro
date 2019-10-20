@@ -4,7 +4,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <IncludePath>$(SolutionDir)\LIB\SDL\SDL_Image\SDL2_image-2.0.5\include;$(SolutionDir)\LIB\SDL\SDL\SDL2-2.0.10\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\LIB\SDL\SDL_Image\SDL2_image-2.0.5\lib\x86;$(SolutionDir)\LIB\SDL\SDL\SDL2-2.0.10\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(SolutionDir)LIB\SDL\SDL\SDL2-2.0.10\lib\x86\*.dll" "$(OutDir)"
+xcopy /y "$(SolutionDir)LIB\SDL\SDL_Image\SDL2_image-2.0.5\lib\x86\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemGroup />
 </Project>

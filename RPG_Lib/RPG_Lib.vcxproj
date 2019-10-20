@@ -73,9 +73,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(SolutionDir)\LIB\SDL\SDL_Image\SDL2_image-2.0.5\lib\x86;$(SolutionDir)\LIB\SDL\SDL\SDL2-2.0.10\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(SolutionDir)\LIB\SDL\SDL_Image\SDL2_image-2.0.5\lib\x86;$(SolutionDir)\LIB\SDL\SDL\SDL2-2.0.10\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\LIB\SDL\SDL_Image\SDL2_image-2.0.5\include;$(SolutionDir)\LIB\SDL\SDL\SDL2-2.0.10\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
