@@ -4,7 +4,52 @@
 #include "SDL.h"
 #include <stdio.h>
 
-int main(int argc, char* argv[]) {
+#include"GameStateContext.h"
+#include<iostream>
+
+class TestClass: public IGameState
+{
+
+	TestClass() {}
+	friend Singleton<TestClass>;
+public:
+	int num = 0;
+
+	// Inherited via IGameState
+	virtual void Update() override
+	{
+		num++;
+	}
+
+	virtual void Draw() override
+	{
+		std::cout << num << std::endl;
+	}
+
+	virtual void DeInitialize() override
+	{
+	}
+
+	virtual void Initialize()
+	{
+	}
+private:
+
+
+
+
+};
+
+typedef Singleton<TestClass> TheTestClass;
+
+int main(int argc, char* argv[])
+{
+	GameStateContext* gsm = TheGameStateContext::Pointer();
+	
+	gsm->SetState(TheTestClass::Pointer());
+
+	gsm->Run();
+
 
 	SDL_Window* window;                    // Declare a pointer
 
